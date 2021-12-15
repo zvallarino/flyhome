@@ -20,6 +20,7 @@ function PlayerCanvas() {
     canvas.height = window.innerHeight * 2;
     canvas.style.width = `${window.innerWidth}px`;
     canvas.style.height = `${window.innerHeight}px`;
+    canvas.style.backgroundColor = "#D1FFFD";
     canvas.style.position = "absolute";
     canvas.style.left = 0;
     canvas.style.top = 0;
@@ -59,6 +60,12 @@ function PlayerCanvas() {
 
   const update = () => {
     drawPlane();
+    drawCircle(circleA);
+    circleMove(circleA);
+    drawCircle(circleB);
+    circleMove(circleB);
+    drawCircle(circleC);
+    circleMove(circleC);
     requestAnimationFrame(update)
   }
 
@@ -109,6 +116,7 @@ const moveRightUp = () => {
   boundariesRight(playerRef.current)
   boundariesUp(playerRef.current)
   secondsCounter(counter => counter +3)
+  
 }
 
 const moveRightDown = () => {
@@ -280,41 +288,41 @@ const drawRectDownDown = () => {
 
 //Draw Enemies
 
-const circleC = {
-  x:900,
-  y:450,
-  size:100,
-  dx:0,
-  dy:2,
-  color: colorRef.current
-}
-
 // const circleC = {
-//   x:700,
-//   y:400,
+//   x:900,
+//   y:450,
 //   size:100,
-//   dx:4,
-//   dy:0,
+//   dx:0,
+//   dy:2,
 //   color: colorRef.current
 // }
 
-// const circleE = {
-//   x:900,
-//   y:400,
-//   size:10,
-//   dx:0,
-//   dy:0,
-//   color: "red"
-// }
+const circleC = {
+  x:700,
+  y:400,
+  size:100,
+  dx:4,
+  dy:0,
+  color: colorRef.current
+}
 
-// const circleF = {
-//   x:900,
-//   y:500,
-//   size:10,
-//   dx:0,
-//   dy:0,
-//   color: "green"
-// }
+const circleA = {
+  x:900,
+  y:800,
+  size:100,
+  dx:5,
+  dy:0,
+  color: "red"
+}
+
+const circleB = {
+  x:900,
+  y:100,
+  size:100,
+  dx:0,
+  dy:7,
+  color: "green"
+}
 
 //HIT MARKERS
 
